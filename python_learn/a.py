@@ -296,3 +296,268 @@ print('hardik' in st)
 st.update([4,5,6])
 print(st)
 
+# set operations : 
+
+# 1. union
+
+a = {'a', 'b', 'c'}
+b = { 'a', 'd'}
+
+print(a | b)
+
+print(a.union(b))
+
+# intersection 
+print(a & b)
+
+#  set difference
+
+print(a - b)
+
+# set symmertric difference
+
+print(a ^ b)
+
+
+# frozenset  : immutable set
+
+s = frozenset({1,3,34,34,32})
+
+print(s , type(s))
+
+
+# dictionary
+
+dic = { 'name' : 'hardik', 'age' : 21, 'job' : "dev"}
+
+print(dic , type(dic))
+
+ls = [ ('name', 'bob'),('age', 21)]
+
+
+d = dict(ls)
+
+print(d)
+
+
+# ways to create a dict
+
+keys = [1, 2 , 3, 4]
+values = [5,6,7,8]
+
+d = dict(zip(keys, values))
+print(d)
+
+
+# keys with a default values
+
+keys = ['a', 'b', 'c']
+defaultValue = 0
+
+d = dict.fromkeys(keys, defaultValue)
+print(d)
+
+
+# access from a dict
+
+d = { 'name' : 'hardik', 'age' : 21, 'job' : "dev"}
+
+print(d['name'])
+
+print(d.get('name'))
+
+
+d['city'] = 'agra'
+
+print(d)
+
+
+# remove an item
+d.pop("city")
+print(d)
+
+del d['job']
+
+print(d)
+
+
+# keys(), values(), items()
+
+D = {'name': 'Bob',
+     'age': 25,
+     'job': 'Dev'}
+
+
+print(list(D.keys()))
+
+print(list(D.values()))
+
+print(list(D.items()))
+
+
+# dictionary comprehension
+
+d = { x  : x**2 for x in range(5)}
+
+print(d)
+d = {x : x*3  for x in 'abc'}
+
+print(d)
+
+# creating a subset of a dictionary
+
+D = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F'}
+
+selectedKeys = [0,2,5]
+
+d = { key : D[key] for key in selectedKeys}
+print(d)
+
+# reverse a dict
+
+d = {v : k for k, v in D.items()}
+
+print(d)
+
+
+# enumerate()
+
+L = ['red', 'green', 'blue']
+
+d = {k : v for k, v in enumerate(L)}
+
+print(d)
+
+
+keys = ['name', 'age', 'job']
+values = ['Bob', 25, 'Dev']
+
+
+D = {k : v for k, v in zip(keys, values)}
+
+print(D)
+
+print(dict(zip(keys, values)))
+
+
+#       strings
+
+
+s = """Hi
+Hardik Gaur"""
+
+print(s)
+
+# type conversion
+
+s = str(42)
+
+print(s)
+
+s = "hardikgaur"
+
+print(s[:], s[1:], s[0:-1] , s[::-1])
+
+
+# implicit concatenation 
+
+s = "Hello" " World"
+
+print(s)
+
+s = ('hardik'
+     ' gaur' ' is a good boy')
+
+print(s)
+
+print('-' * 10)
+
+print(len(s))
+
+
+s = "Hello World"
+
+s2 = s.replace("World", 'Hardik')
+
+print(s, s2)
+
+
+s = 'red,green,blue,yellow'
+s = s.split(',')
+s = '|'.join(s)
+
+print(s)
+
+# every word first letter capital : title()
+
+S = 'hello, world!'
+
+print(S.title())
+
+# f strings
+
+name = 'Hardik'
+
+s = f"hii {name}"
+print(s)
+
+
+# conditional statement
+
+x , y = 2,1
+print("yes") if x > y else print("no")
+
+
+# while loop
+
+x = 1
+
+while x<4 : 
+    print(x)
+    x +=1
+
+l = [1, 2, 3]
+
+while l : 
+    print(l.pop())
+
+
+
+# functions
+
+def hello() :
+    print("Hii")
+
+hello()   
+
+def foo(name, age):
+    print(name, ' is at ', age)
+
+foo(name='Hardik', age=21)  
+
+def foo(name, age , job='dev') : 
+    print(name , ' is at ', age, ' and is a ', job)
+
+foo(name ='Hardik',age= 21)
+
+def closure(a, b):
+
+    def sum() : 
+        return a + b
+    
+    return sum()
+
+print(closure(1,2))
+
+# lambda functions
+
+
+L = [('Sam', 35),
+    ('Max', 25),
+    ('Bob', 30)]
+
+
+x = sorted(L, key=lambda x : x[1])
+
+print(x)
+
