@@ -1,3 +1,5 @@
+from functools import wraps
+
 # complex number
 
 x = 3 + 4j
@@ -560,4 +562,124 @@ L = [('Sam', 35),
 x = sorted(L, key=lambda x : x[1])
 
 print(x)
+
+
+#                                                       decorator
+
+# manual way
+
+# def decorator(func) : 
+#     def wrapper() : 
+#         print("Calling the function")
+#         func()
+#         print("Finished")
+#     return wrapper
+
+
+# def hello() :
+#     print("Hello")
+
+# hello = decorator(hello)
+# hello()
+
+
+# syntactic sugar
+
+
+# def decorator(func) : 
+
+#     def wrapper() : 
+
+#         print("Calling")
+#         func()
+#         print("finished")
+#     return wrapper
+
+# @decorator  # add the decorator name
+# def hello() : 
+#     print("Hello world")
+
+
+# hello()
+
+
+
+# passing arguments
+
+# def decorator(func) : 
+    
+#     def wrapper(*args ,**kwargs) : 
+#         print("Calling")
+#         func(*args, **kwargs)
+#         print("finished")
+#     return wrapper
+
+# @decorator
+# def hello(name) : 
+#     print("Hello " + name)
+
+
+# hello("Hardik")
+
+
+# returning a value
+
+# def decorator(func) : 
+
+#     def wrapper(*args, **kwargs) : 
+#         print("Calling")
+#         result = func(*args, **kwargs)
+#         print("Finished")
+#         return result  
+#     return wrapper
+
+# @decorator
+# def hello(name) : 
+#     return "Hello " + name
+
+# print(hello("hardik"))
+
+
+# preseving function's metadata like name, docstring etc.
+
+
+# def hello(name) : 
+#     """prints hello 'name'"""
+#     print("Hello " + name)
+
+# print(hello.__name__)
+# print(hello.__doc__)
+
+
+
+
+# to preserve metadata above the wrapper function , use @wrap(func) ( this is imported from functool )
+def decorat(func) : 
+    
+    @wraps(func)
+    def wrapper(*args ,**kwargs) : 
+        print("Calling")
+        func(*args, **kwargs)
+        print("finished")
+    return wrapper
+
+@decorat
+def hello(name) : 
+    """prints hello 'name'"""
+    print("Hello " + name)
+
+print(hello.__name__)
+print(hello.__doc__)
+
+#  unwrapping a decorator
+
+
+original = hello.__wrapped__
+
+original("Hardik")
+
+
+
+
+
 
