@@ -680,6 +680,86 @@ original("Hardik")
 
 
 
+#                   classes
+
+
+class Car : 
+    
+    company = "audi" # class variable
+    def __init__(self, color):
+        self.color = color
+        self.start = False
+        
+    def startCar(self) : 
+        
+        if(self.start) : 
+            print("already started")
+            return
+        self.start = True
+        print("Turned on")
+
+    def getColor(self) : 
+        print(self.color)
+
+car = Car("red")
+
+car.startCar()
+car.getColor()
+car.startCar()
+
+#           property
+
+class Person : 
+    def __init__(self, value):
+        self.name = value
+        
+    @property
+    def name(self) : 
+        print(self._name)    
+    
+    @name.setter
+    def name(self, value) : 
+        self._name = value    
+        
+    @name.deleter
+    def name(self) : 
+        print("cannot delete it")    
+        
+person = Person("Hardik")
+person.name           
+
+
+#                   inheritance
+
+class Airplane : 
+    def __init__(self, name) : 
+        self.name = name
+        
+    def getName(self) : 
+        return self.name    
+    
+    
+class FighterJet(Airplane) : 
+    def __init__(self, name, color) : 
+        super().__init__(name)
+        self.color = color    
+    def getColor(self) : 
+        return (self.color)    
+        
+ 
+plane = FighterJet('a', 'b')
+print(plane.getColor()) 
+print(plane.getName())      
 
 
 
+#                  try and catch
+
+
+try :
+    raise TypeError("Error occurred")
+except TypeError as e : 
+    print(e)
+finally :
+    print("Finished")    
+    
