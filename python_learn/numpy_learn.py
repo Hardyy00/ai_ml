@@ -58,3 +58,84 @@ arr = np.full((3,3),10)
 for i in arr.flat : 
     print(i, end=' ')
 print()
+
+# arr.flatten()
+
+arr = np.array([[1,2,3], [4,5,6]])
+
+flattened_array = arr.flatten()
+print(flattened_array)
+
+# np.ravel() : creates 1d array out of the same nd array
+
+arr = np.array([[1,2,3], [4,5,6]])
+
+arr = np.ravel(arr)
+print(arr)
+
+# np.transpose()
+
+
+arr_2d = np.array([[1,2,3], [4,5,6]])
+transpose = np.transpose(arr_2d)
+print(transpose)
+
+# arr.T : returns the transpose
+
+arr_2d = np.array([[1,2,3],[4,5,6]])
+
+print(arr_2d.T)
+
+# np.concatenate()
+
+arr1 = np.arange(1,5).reshape(2,2)
+arr2 = np.arange(5,9).reshape(2,2)
+
+a = np.concatenate((arr1, arr2), axis=0)
+b = np.concatenate((arr1, arr2), axis=1)
+print(a, b, sep='\n')
+
+
+#     iteration
+
+
+arr = np.arange(1, 10).reshape((3,3))
+
+rows, cols = arr.shape
+
+
+for i in range(rows) : 
+    for j in range(cols) : 
+        print(arr[i][j], end = ' ')
+    print()
+
+for i in arr.flat :
+    print(i)
+    
+    
+# vectorized operations : 
+
+arr1 = np.arange(1, 5)
+arr2 = np.arange(5, 9)
+
+arr = arr1 + arr2
+print(arr)   
+
+# update ndarray in place
+
+arr = np.arange(1, 6)
+
+with np.nditer(arr, flags=['buffered'], op_flags=['readwrite']) as it : 
+    
+    for x in it : 
+        x[...] =  x * 2
+
+print(arr)
+
+
+#    slicing 
+
+arr = np.arange(9).reshape((3,3))
+
+print(arr)
+print(arr[..., 1:])
