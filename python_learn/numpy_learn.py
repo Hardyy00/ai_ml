@@ -139,3 +139,50 @@ arr = np.arange(9).reshape((3,3))
 
 print(arr)
 print(arr[..., 1:])
+
+
+arr = np.arange(10)
+
+print(arr[arr > 5])
+
+# find all complex number
+
+a = np.array( [1, 2 + 6j ,5, 3.5 + 5j]  )
+
+print(a[ np.iscomplex(a) ])
+
+# array size
+
+a = np.arange(10)
+print(len(a), a.size)
+
+
+# operations
+
+a = np.array([10,20, 30])
+b = np.array([1,2,3])
+
+print(a / b)
+
+a = np.arange(4)
+print(np.power(a, 2))
+
+scalar= 10
+print(a + 10)
+
+#                   date  and time arrays
+
+start_date = np.datetime64('2024-08-01')
+end_date = np.datetime64('2024-08-10') 
+
+
+gap = end_date - start_date
+
+arr = np.linspace(0, gap.astype(np.int64), 5).astype(np.int64)
+print(start_date + arr)
+
+
+
+      
+
+
