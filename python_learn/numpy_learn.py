@@ -78,6 +78,9 @@ print(arr)
 
 arr_2d = np.array([[1,2,3], [4,5,6]])
 transpose = np.transpose(arr_2d)
+
+
+
 print(transpose)
 
 # arr.T : returns the transpose
@@ -180,9 +183,3 @@ gap = end_date - start_date
 
 arr = np.linspace(0, gap.astype(np.int64), 5).astype(np.int64)
 print(start_date + arr)
-
-
-
-      
-
-
